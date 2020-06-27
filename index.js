@@ -1,4 +1,6 @@
-import { Container, Text, TappableText } from "./lib/widget";
+import { Container } from "./widgets/container";
+import { Text } from "./widgets/text";
+import { TappableText } from "./widgets/tappableText";
 
 function MyOtherComponent(context) {
   return new Text(`From other component with context ${context.name}`);
