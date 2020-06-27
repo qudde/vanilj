@@ -22,8 +22,8 @@ const MenuItem = (title, isLast) =>
       children([
         new Text(title, {
           color: _isOpen ? "rgba(0,0,0,.5)" : "white",
-          fontSize: "14px",
-          fontWeight: 600,
+          fontSize: "15px",
+          fontWeight: 400,
           width: "95px",
           marginLeft: "10px",
           letterSpacing: "1px"
@@ -86,7 +86,7 @@ export const RightHeaderMenu = new FlexContainer({
               backgroundColor: "#fff",
               boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
               top: "80px",
-              borderRadius: "20px",
+              borderRadius: "6px",
               overflow: "hidden",
               padding: "10px"
             },
