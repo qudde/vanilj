@@ -7,17 +7,10 @@ export class Widget {
     this.create = this.create.bind(this);
     this.flush = this.flush.bind(this);
     this.build = this.build.bind(this);
-    this.children = this.build.bind(this);
     this.context = this;
-    this.parent = {};
-    this.__ = this.build;
 
-    if (props && props.style) {
+    if (props.style) {
       this.defineStyles(props.style);
-    }
-
-    if (props && props.builder) {
-      this.render = props.builder;
     }
   }
 
@@ -65,9 +58,7 @@ export class Widget {
   build(children) {
     this.flush();
     this.init();
-    children.forEach(
-      (child) => this.el.appendChild(child.el) && (child.parent = this.context)
-    );
+    children.forEach((child) => this.el.appendChild(child.el));
   }
 }
 
@@ -80,8 +71,7 @@ export class Text extends Widget {
 }
 
 export class Container extends Widget {
-  constructor(props) {
-    super(props);
-    this.create();
+  constructor(value, style) {
+    super({ value, style });
   }
 }

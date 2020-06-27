@@ -1,31 +1,31 @@
 import { Container, Text } from "./lib/widget";
 
-const _ = new Container();
-
-_.name = "Max";
-
-_.render = ({ build, name }) =>
-  build([
-    new Text(`Hello, my name is ${name}`, {
-      backgroundColor: name > 0.5 ? "green" : "red"
-    }),
-    new Text("Yo"),
-    new Container()
-  ]);
-
-_.defineStyles((context) => ({
-  width: "100px",
-  height: "100px",
-  marginLeft: "10px",
-  marginTop: "10px",
-  backgroundColor: context.name > 0.5 ? "red" : "green",
-  color: "white"
-}));
-
-// Mount component
-_.create();
+const _ = new Container({
+  style: (context) => ({
+    width: "600px",
+    height: "400px",
+    marginLeft: "10px",
+    marginTop: "10px",
+    backgroundColor: context.name > 0.5 ? "red" : "green",
+    color: "white"
+  }),
+  builder: ({ children, name }) =>
+    children([
+      new Text(`Hello, my name is ${name}`, {
+        backgroundColor: name > 0.5 ? "green" : "red"
+      }),
+      new Container({
+        builder: ({ children }) =>
+          children([
+            new Text(`I am ${name}`, {
+              backgroundColor: name > 0.5 ? "green" : "red"
+            })
+          ])
+      })
+    ])
+});
 
 // Updating state
 setInterval(() => {
   _.setState((context) => (context.name = Math.random()));
-}, 40);
+}, 100);
