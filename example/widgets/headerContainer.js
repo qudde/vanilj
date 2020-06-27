@@ -8,7 +8,7 @@ export const HeaderContainer = (name) =>
   new FlexContainer({
     style: (context) => ({
       width: "100%",
-      height: "60px",
+      height: "110px",
       backgroundColor: "rgb(39, 186, 190)",
       boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
       overflow: "hidden"
@@ -24,7 +24,7 @@ export const HeaderContainer = (name) =>
           alignItems: "center",
           justifyContent: "space-around",
           builder: ({ children }) =>
-            children([LogoBox(), HeaderMenu(), RightHeaderMenu])
+            children([LogoBox(), false ? HeaderMenu() : null, RightHeaderMenu])
         })
       ])
   });

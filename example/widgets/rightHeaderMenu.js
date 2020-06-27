@@ -1,6 +1,7 @@
 import { FlexContainer } from "../../widgets/flexContainer";
 import { Text } from "../../widgets/text";
 import { Ionicon } from "../../widgets/ionicon";
+import { Container } from "../../widgets/container";
 
 let _isOpen = false;
 let _label = "Open menu";
@@ -11,6 +12,7 @@ export const RightHeaderMenu = new FlexContainer({
     maxWidth: "140px",
     height: "40px",
     backgroundColor: _isOpen ? "rgba(255,255,255,.2)" : "rgba(0, 0, 0, .2)",
+    boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
     borderRadius: "20px",
     userSelect: "none",
     ...getActiveStyles(context)
@@ -33,12 +35,25 @@ export const RightHeaderMenu = new FlexContainer({
         }
       }),
       new Text(_label, {
-        color: _isOpen ? "rgba(255,255,255,.8)" : "white",
+        color: _isOpen ? "rgba(0,0,0,.5)" : "white",
         fontSize: "15px",
         fontWeight: 500,
         width: "99px",
         textAlign: "center"
-      })
+      }),
+      _isOpen
+        ? new Container({
+            style: {
+              position: "absolute",
+              width: "180px",
+              height: "100px",
+              backgroundColor: "#fff",
+              boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
+              top: "80px",
+              borderRadius: "20px"
+            }
+          })
+        : null
     ])
 });
 

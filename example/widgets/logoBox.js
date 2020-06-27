@@ -4,9 +4,9 @@ import { Image } from "../../widgets/image";
 export const LogoBox = () =>
   new Container({
     style: (context) => ({
-      width: "220px",
-      height: "60px",
-      minWidth: "220px"
+      width: "260px",
+      height: "75px",
+      minWidth: "260px"
     }),
     builder: ({ children, name, context }) =>
       children([
