@@ -1,4 +1,4 @@
-import { Container, Text, TappableText } from "./lib/widget";
+import { Container, Text } from "./lib/widget";
 
 const _ = new Container({
   style: (context) => ({
@@ -17,17 +17,8 @@ const _ = new Container({
       new Container({
         builder: ({ children }) =>
           children([
-            new TappableText({
-              text: `Click me and look I can still use scoped context! ${name}`,
-              onPressed: () => alert("Hello world!"),
-              style: {
-                backgroundColor: "green",
-                width: "100px",
-                height: "100px",
-                margin: "100px",
-                borderRadius: "50px",
-                padding: "100px"
-              }
+            new Text(`I am ${name}`, {
+              backgroundColor: name > 0.5 ? "green" : "red"
             })
           ])
       })
