@@ -32,7 +32,10 @@ const _ = new Container({
             // Components with custom behavior
             new TappableText({
               text: `Click me and look I can still use scoped context! ${name}`,
-              onPressed: () => alert("Hello world!"),
+              onPressed: () =>
+                context.setState(() => {
+                  context.name = "Hello";
+                }),
               style: {
                 backgroundColor: "green",
                 width: "100px",
@@ -47,7 +50,4 @@ const _ = new Container({
     ])
 });
 
-// Updating state
-setInterval(() => {
-  _.setState((context) => (context.name = Math.random()));
-}, 100);
+_.setState(() => (_.name = "Click the button"));
