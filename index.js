@@ -1,5 +1,9 @@
 import { Container, Text, TappableText } from "./lib/widget";
 
+function MyOtherComponent(context) {
+  return new Text(`From other component with context ${context.name}`);
+}
+
 const _ = new Container({
   style: (context) => ({
     width: "600px",
@@ -9,14 +13,21 @@ const _ = new Container({
     backgroundColor: context.name > 0.5 ? "red" : "green",
     color: "white"
   }),
-  builder: ({ children, name }) =>
+  builder: ({ children, name, context }) =>
     children([
+      // Conditional rendering
+      name > 0.5 ? new Text("Hello") : new Text("World"),
+      // Text component with conditional dynamic styles
       new Text(`Hello, my name is ${name}`, {
         backgroundColor: name > 0.5 ? "green" : "red"
       }),
+      // Nested components
       new Container({
         builder: ({ children }) =>
           children([
+            // Custom nested component derived from function
+            MyOtherComponent(context),
+            // Components with custom behavior
             new TappableText({
               text: `Click me and look I can still use scoped context! ${name}`,
               onPressed: () => alert("Hello world!"),
