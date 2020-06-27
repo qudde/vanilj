@@ -22,10 +22,11 @@ const MenuItem = (title, isLast) =>
       children([
         new Text(title, {
           color: _isOpen ? "rgba(0,0,0,.5)" : "white",
-          fontSize: "15px",
-          fontWeight: 500,
+          fontSize: "14px",
+          fontWeight: 600,
           width: "95px",
-          marginLeft: "10px"
+          marginLeft: "10px",
+          letterSpacing: "1px"
         }),
         new Ionicon({
           icon: "arrow-forward",
@@ -73,7 +74,8 @@ export const RightHeaderMenu = new FlexContainer({
         fontSize: "15px",
         fontWeight: 500,
         width: "95px",
-        textAlign: "center"
+        textAlign: "center",
+        letterSpacing: "1px"
       }),
       _isOpen
         ? new Container({
