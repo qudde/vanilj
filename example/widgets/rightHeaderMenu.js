@@ -2,10 +2,44 @@ import { FlexContainer } from "../../widgets/flexContainer";
 import { Text } from "../../widgets/text";
 import { Ionicon } from "../../widgets/ionicon";
 import { Container } from "../../widgets/container";
+import { Row } from "../../widgets/row";
 
 let _isOpen = false;
 let _label = "Open menu";
 let _isActive = false;
+let _menuItems = ["Home", "Search", "My Profile", "Help"];
+
+const MenuItem = (title, isLast) =>
+  new FlexContainer({
+    style: {
+      height: "38px",
+      borderBottom: isLast ? 0 : "1px solid #EEE",
+      width: "100%"
+    },
+    alignItems: "center",
+    justifyContent: "space-between",
+    builder: ({ children }) =>
+      children([
+        new Text(title, {
+          color: _isOpen ? "rgba(0,0,0,.5)" : "white",
+          fontSize: "15px",
+          fontWeight: 500,
+          width: "95px",
+          marginLeft: "10px"
+        }),
+        new Ionicon({
+          icon: "arrow-forward",
+          color: _isOpen ? "rgba(0,0,0,.3)" : "#FFF",
+          size: "22px",
+          style: {
+            height: "21px",
+            width: "20px",
+            overflow: "hidden",
+            marginRight: "10px"
+          }
+        })
+      ])
+  });
 
 export const RightHeaderMenu = new FlexContainer({
   style: (context) => ({
@@ -38,7 +72,7 @@ export const RightHeaderMenu = new FlexContainer({
         color: _isOpen ? "rgba(0,0,0,.5)" : "white",
         fontSize: "15px",
         fontWeight: 500,
-        width: "99px",
+        width: "95px",
         textAlign: "center"
       }),
       _isOpen
@@ -46,12 +80,20 @@ export const RightHeaderMenu = new FlexContainer({
             style: {
               position: "absolute",
               width: "180px",
-              height: "100px",
+              height: "150px",
               backgroundColor: "#fff",
               boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
               top: "80px",
-              borderRadius: "20px"
-            }
+              borderRadius: "20px",
+              overflow: "hidden",
+              padding: "10px"
+            },
+            builder: ({ children }) =>
+              children([
+                ..._menuItems.map((item, index) =>
+                  MenuItem(item, index === _menuItems.length - 1)
+                )
+              ])
           })
         : null
     ])

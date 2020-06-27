@@ -8,7 +8,7 @@ export const HeaderContainer = (name) =>
   new FlexContainer({
     style: (context) => ({
       width: "100%",
-      height: "110px",
+      height: "90px",
       backgroundColor: "rgb(39, 186, 190)",
       boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
       overflow: "hidden"
