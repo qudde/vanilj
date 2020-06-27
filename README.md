@@ -1,2 +1,2 @@
-# vaniljglass
-VaniljglassJS
+# vanilj
+Extensible UI widget system.
