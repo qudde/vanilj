@@ -1,6 +1,6 @@
 
 # vanilj
-Extremely lightweight reactive UI framework for the web.
+Lightweight reactive UI framework for the web.
 
 
 ## Features
