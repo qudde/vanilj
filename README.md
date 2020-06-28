@@ -91,6 +91,7 @@ Example creating a `FlexContainer` class:
 	  constructor(props) {
 	    super(props);
 
+	    this.element = "div"; 
 	    this.el.style.flex = 1;
 	    this.el.style.display = "flex";
 
