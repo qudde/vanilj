@@ -5,7 +5,7 @@ import { Container } from "../../widgets/container";
 import { Row } from "../../widgets/row";
 
 let _isOpen = false;
-let _label = "Open menu";
+let _label = "Resources";
 let _isActive = false;
 let _menuItems = ["Home", "Search", "My Profile", "Help"];
 
@@ -109,7 +109,7 @@ export const RightHeaderMenu = new FlexContainer({
 function toggleMenu() {
   const { context, setState } = RightHeaderMenu;
   setState(() => {
-    _label = !_isOpen ? "Close menu" : "Open menu";
+    _label = !_isOpen ? "Close menu" : "Resources";
     _isOpen = !_isOpen;
   });
 }
