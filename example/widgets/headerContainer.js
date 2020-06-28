@@ -7,11 +7,11 @@ import { RightHeaderMenu } from "./rightHeaderMenu";
 export const HeaderContainer = (name) =>
   new FlexContainer({
     style: (context) => ({
+      position: "absolute",
       width: "100%",
       height: "90px",
       backgroundColor: "rgb(0,0,0)",
-      boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
-      overflow: "hidden"
+      boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px"
     }),
     justifyContent: "center",
     alignItems: "center",
