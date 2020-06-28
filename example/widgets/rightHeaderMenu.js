@@ -52,6 +52,11 @@ export const RightHeaderMenu = new FlexContainer({
     userSelect: "none",
     ...getActiveStyles(context)
   }),
+  css: (context) => `
+    *:active {
+      color: rgb(39, 186, 190) !important;
+    }
+  `,
   alignItems: "center",
   justifyContent: "center",
   onPressed: toggleMenu,
