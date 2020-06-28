@@ -54,7 +54,7 @@ export const RightHeaderMenu = new FlexContainer({
   }),
   css: (context) => `
     *:active {
-      color: rgb(39, 186, 190) !important;
+      color: #FF5471 !important;
     }
   `,
   alignItems: "center",
@@ -66,7 +66,7 @@ export const RightHeaderMenu = new FlexContainer({
     children([
       new Ionicon({
         icon: "more",
-        color: _isOpen ? "rgba(0,0,0,.6)" : "#FFF",
+        color: "#FFF",
         size: "22px",
         style: {
           height: "21px",
@@ -75,7 +75,7 @@ export const RightHeaderMenu = new FlexContainer({
         }
       }),
       new Text(_label, {
-        color: _isOpen ? "rgba(0,0,0,.5)" : "white",
+        color: "white",
         fontSize: "15px",
         fontWeight: 500,
         width: "95px",

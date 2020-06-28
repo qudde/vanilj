@@ -21,5 +21,16 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 3000
+  },
+  experiments: {
+    asset: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.png/,
+        type: "asset/resource"
+      }
+    ]
   }
 };
