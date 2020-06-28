@@ -1,6 +1,6 @@
 
+![vanilj](https://github.com/qudde/vanilj/blob/master/assets/glass.png)
 
-# vanilj
 Extremely lightweight reactive UI framework for the web.
 
 
