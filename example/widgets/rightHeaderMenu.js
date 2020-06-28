@@ -5,19 +5,21 @@ import { Container } from "../../widgets/container";
 import { Row } from "../../widgets/row";
 
 let _isOpen = false;
-let _label = "Resources";
 let _isActive = false;
-let _menuItems = ["Home", "Search", "My Profile", "Help"];
+let _menuItems = ["Resources", "Search", "My Profile", "Help"];
+let _label = _menuItems[0];
+let _selectedItem = 0;
 let _activeOn = false;
 let _activeAnim = 0;
 
-const MenuItem = (title, isLast) =>
+const MenuItem = (context, title, index, isLast) =>
   new FlexContainer({
     style: {
       height: "38px",
       borderBottom: isLast ? 0 : "1px solid #EEE",
       width: "100%"
     },
+    onPressed: () => context.setState(() => (_selectedItem = index)),
     alignItems: "center",
     justifyContent: "space-between",
     builder: ({ children }) =>
@@ -86,7 +88,7 @@ export const RightHeaderMenu = new FlexContainer({
           overflow: "hidden"
         }
       }),
-      new Text(_label, {
+      new Text(_menuItems[_selectedItem], {
         color: "white",
         fontSize: "15px",
         fontWeight: 500,
@@ -111,7 +113,12 @@ export const RightHeaderMenu = new FlexContainer({
             builder: ({ children }) =>
               children([
                 ..._menuItems.map((item, index) =>
-                  MenuItem(item, index === _menuItems.length - 1)
+                  MenuItem(
+                    context,
+                    item,
+                    index,
+                    index === _menuItems.length - 1
+                  )
                 )
               ])
           })
@@ -122,7 +129,6 @@ export const RightHeaderMenu = new FlexContainer({
 function toggleMenu() {
   const { context, setState } = RightHeaderMenu;
   setState(() => {
-    _label = !_isOpen ? "Close menu" : "Resources";
     _isOpen = !_isOpen;
     if (!_isOpen) {
       _activeOn = false;
@@ -145,5 +151,3 @@ function getActiveStyles(context) {
     };
   }
 }
-
-RightHeaderMenu.setState((context) => (context.label = "Open"));
