@@ -26,8 +26,7 @@ const MenuItem = (context, title, index, isLast) =>
       children([
         new Text(title, {
           color: _isOpen ? "rgba(0,0,0,.5)" : "white",
-          fontSize: "15px",
-          fontWeight: 400,
+          fontSize: "16px",
           width: "95px",
           marginLeft: "10px",
           letterSpacing: "1px"
@@ -48,7 +47,7 @@ const MenuItem = (context, title, index, isLast) =>
 
 export const RightHeaderMenu = new FlexContainer({
   style: (context) => ({
-    maxWidth: "140px",
+    maxWidth: "160px",
     height: "40px",
     backgroundColor: _isOpen ? "rgba(255,255,255,.2)" : "rgba(0, 0, 0, .2)",
     boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
@@ -68,6 +67,12 @@ export const RightHeaderMenu = new FlexContainer({
     @keyframes menuin {
       from { opacity: 0; transform: translateY(-30px); }
       to   { opacity: 1; transform: translateY(0px); }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .headerMenu {
+        right: 30px;
+      }
     }
 
   `,
@@ -100,7 +105,7 @@ export const RightHeaderMenu = new FlexContainer({
         ? new Container({
             style: (context) => ({
               position: "absolute",
-              width: "180px",
+              width: "200px",
               height: "150px",
               backgroundColor: "#fff",
               boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
