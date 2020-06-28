@@ -60,7 +60,7 @@ export const RightHeaderMenu = new FlexContainer({
     }
 
     .headerMenu {
-      animation: menuin .4s ease;
+      animation: menuin .3s ease;
     }
 
     @keyframes menuin {
