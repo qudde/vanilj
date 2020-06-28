@@ -1,6 +1,7 @@
 
+
 # vanilj
-Lightweight reactive and extensible UI framework for the web.
+Extremely lightweight reactive UI framework for the web.
 
 
 ## Features
@@ -79,3 +80,30 @@ This is how it looks when nesting children in the tree. Conditional rendering al
 			context.isActive = !context.isActive;
 		});
 	}
+
+### Extending core widgets
+
+To get access to the constructor directly you can create your own core widgets by extending Widget or any other class that derives from the Widget class. You can look at examples of this in the `/widgets`directory. 
+
+Example creating a `FlexContainer` class:
+
+    export class FlexContainer extends Container {
+	  constructor(props) {
+	    super(props);
+
+	    this.el.style.flex = 1;
+	    this.el.style.display = "flex";
+
+	    if (props.alignItems) {
+	      this.el.style.alignItems = props.alignItems;
+	    }	
+
+	    if (props.justifyContent) {
+	      this.el.style.justifyContent = props.justifyContent;
+	    }
+
+	    this.create();
+	  }
+	}
+
+	
