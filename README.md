@@ -2,12 +2,14 @@
 # vanilj
 Extremely lightweight reactive UI framework for the web.
 
+
 ## Features
 
  - [X] Reactive State management/Context
  - [X] CSS-in-JS / Scoped CSS
- - [X] Prebuilt Widget library
+ - [X] Builtin simple but extensible Widget library
  - [x] Easy to use Flex layout
+
 
 ## Installation & Development
 
@@ -16,11 +18,14 @@ Extremely lightweight reactive UI framework for the web.
 - To try it out, check out `/example`
 - Happy coding!
 
+
 ## Widgets
 
 Widgets are the core class from which all of our components are derived from.
 
+
 ### Example
+Here we are using scoped css in conjuction with context state to render our widget styles. We use `onPressed` to trigger a state change event on `isActive`.
 
     const App = new Container(
 	    css: (context) => `
@@ -35,7 +40,10 @@ To render the root component of our tree, we simply import "App" from another fi
 
     import App from "./example/pages/app";
 
+
 ### Nesting children
+
+This is how it looks when nesting children in the tree. Conditional rendering also works at all levels. You can call anything inside there as long as it returns a valid Widget.
 
     const App = new Container(
 		builder: ({children, context}) =>
@@ -48,9 +56,10 @@ To render the root component of our tree, we simply import "App" from another fi
 			])
 	)
 
-### Example for composing a component 
 
-    const App = new Container(
+### Composing a component 
+
+    export const App = () => new Container(
 	    css: (context) => `
 		    width: 100px;
 		    height: 100px;
@@ -70,4 +79,3 @@ To render the root component of our tree, we simply import "App" from another fi
 			context.isActive = !context.isActive;
 		});
 	}
-
