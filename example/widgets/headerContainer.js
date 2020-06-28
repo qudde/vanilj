@@ -19,10 +19,21 @@ export const HeaderContainer = (name) =>
       children([
         new Row({
           style: {
-            width: "80%"
+            width: "80%",
+            maxWidth: "1200px"
           },
+          className: "headerMenuRow",
+          css: (context) => `
+          
+            @media only screen and (max-width: 900px) {
+              .headerMenuRow {
+                width: calc(100% - 50px) !important;
+              }
+            }
+  
+          `,
           alignItems: "center",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           builder: ({ children }) =>
             children([LogoBox(), false ? HeaderMenu() : null, RightHeaderMenu])
         })
