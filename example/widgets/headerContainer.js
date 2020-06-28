@@ -15,6 +15,7 @@ export const HeaderContainer = (name) =>
     }),
     justifyContent: "center",
     alignItems: "center",
+
     builder: ({ children }) =>
       children([
         new Row({
@@ -22,7 +23,7 @@ export const HeaderContainer = (name) =>
             width: "80%",
             maxWidth: "1200px"
           },
-          className: "headerMenuRow",
+          className: (context) => "headerMenuRow",
           css: (context) => `
           
             @media only screen and (max-width: 900px) {

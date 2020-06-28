@@ -8,6 +8,8 @@ let _isOpen = false;
 let _label = "Resources";
 let _isActive = false;
 let _menuItems = ["Home", "Search", "My Profile", "Help"];
+let _activeOn = false;
+let _activeAnim = 0;
 
 const MenuItem = (title, isLast) =>
   new FlexContainer({
@@ -56,6 +58,16 @@ export const RightHeaderMenu = new FlexContainer({
     *:active {
       color: #FF5471 !important;
     }
+
+    .headerMenu {
+      animation: menuin .4s ease;
+    }
+
+    @keyframes menuin {
+      from { opacity: 0; transform: translateY(-30px); }
+      to   { opacity: 1; transform: translateY(0px); }
+    }
+
   `,
   alignItems: "center",
   justifyContent: "center",
@@ -84,17 +96,18 @@ export const RightHeaderMenu = new FlexContainer({
       }),
       _isOpen
         ? new Container({
-            style: {
+            style: (context) => ({
               position: "absolute",
               width: "180px",
               height: "150px",
               backgroundColor: "#fff",
               boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
-              top: "80px",
               borderRadius: "6px",
               overflow: "hidden",
-              padding: "10px"
-            },
+              padding: "10px",
+              top: "80px"
+            }),
+            className: () => "headerMenu",
             builder: ({ children }) =>
               children([
                 ..._menuItems.map((item, index) =>
@@ -111,6 +124,10 @@ function toggleMenu() {
   setState(() => {
     _label = !_isOpen ? "Close menu" : "Resources";
     _isOpen = !_isOpen;
+    if (!_isOpen) {
+      _activeOn = false;
+      _activeAnim = 0;
+    }
   });
 }
 
