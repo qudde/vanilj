@@ -1,5 +1,5 @@
 
-# vaniljglass
+# vanilj
 Lightweight reactive and extensible UI framework for the web.
 
 
