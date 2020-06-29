@@ -1,6 +1,6 @@
 import { Container } from "../../widgets/container";
 import { Text } from "../../widgets/text";
-import { appState } from "../state";
+import { pageState } from "../state/pageState";
 import { observe } from "mobx";
 
 export const MainContainer = new Container({
@@ -18,13 +18,13 @@ export const MainContainer = new Container({
 
   className: () => "main",
   builder: ({ children }) =>
-    children([new Text(`Rendering page: ${appState.pageIndex}`)])
+    children([new Text(`Rendering page: ${pageState.pageIndex}`)])
 });
 
-observe(appState, (change) => {
+observe(pageState, (change) => {
   if (change.name === "pageIndex") {
     MainContainer.setState(() => {
-      appState.setPageIndex(change.newValue);
+      pageState.setPageIndex(change.newValue);
     });
   }
 });

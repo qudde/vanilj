@@ -1,10 +1,10 @@
 import { observable, action } from "mobx";
 
-let appState = observable({
+let pageState = observable({
   pageIndex: 0,
   setPageIndex: action(function setPageIndex(i) {
     this.pageIndex = i;
   })
 });
 
-export { appState };
+export { pageState };
