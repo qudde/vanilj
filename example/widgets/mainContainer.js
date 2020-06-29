@@ -22,9 +22,5 @@ export const MainContainer = new Container({
 });
 
 observe(pageState, (change) => {
-  if (change.name === "pageIndex") {
-    MainContainer.setState(() => {
-      pageState.setPageIndex(change.newValue);
-    });
-  }
+  MainContainer.update();
 });
