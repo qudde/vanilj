@@ -11,6 +11,7 @@ Extremely lightweight reactive UI framework for the web.
  - [X] Builtin simple but extensible Widget library
  - [x] Easy to use Flex layout
  - [x] Lazy loading with "Future" widget
+ - [x] Integrates well with external libs like MobX and navigo router
 
 
 ## Installation & Development
