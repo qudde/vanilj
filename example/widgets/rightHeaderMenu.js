@@ -3,6 +3,7 @@ import { Text } from "../../widgets/text";
 import { Ionicon } from "../../widgets/ionicon";
 import { Container } from "../../widgets/container";
 import { Row } from "../../widgets/row";
+import { appState } from "../state";
 
 let _isOpen = false;
 let _isActive = false;
@@ -19,7 +20,7 @@ const MenuItem = (context, title, index, isLast) =>
       borderBottom: isLast ? 0 : "1px solid #EEE",
       width: "100%"
     },
-    onPressed: () => context.setState(() => (_selectedItem = index)),
+    onPressed: () => context.setState(() => appState.setPageIndex(index)),
     alignItems: "center",
     justifyContent: "space-between",
     builder: ({ children }) =>
@@ -56,7 +57,7 @@ export const RightHeaderMenu = new FlexContainer({
     ...getActiveStyles(context)
   }),
   css: (context) => `
-    *:active {
+    .headerMenu *:active {
       color: #FF5471 !important;
     }
 
@@ -93,7 +94,7 @@ export const RightHeaderMenu = new FlexContainer({
           overflow: "hidden"
         }
       }),
-      new Text(_menuItems[_selectedItem], {
+      new Text(_menuItems[appState.pageIndex], {
         color: "white",
         fontSize: "15px",
         fontWeight: 500,

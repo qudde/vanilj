@@ -1,10 +1,11 @@
 import { HeaderContainer } from "../widgets/headerContainer";
 import { Container } from "../../widgets/container";
 import { Text } from "../../widgets/text";
+import { appState } from "../state";
+import { observe } from "mobx";
 
-const MainContainer = () =>
-  new Container({
-    css: (context) => `
+const MainContainer = new Container({
+  css: (context) => `
       .main {
         margin: 0 auto;
         padding-top: 200px;
@@ -16,9 +17,10 @@ const MainContainer = () =>
       }
   `,
 
-    className: () => "main",
-    builder: ({ children }) => children([new Text("Rendering page: ")])
-  });
+  className: () => "main",
+  builder: ({ children }) =>
+    children([new Text(`Rendering page: ${appState.pageIndex}`)])
+});
 
 const App = new Container({
   style: (context) => ({
@@ -26,5 +28,13 @@ const App = new Container({
     height: "100%"
   }),
   builder: ({ children, name }) =>
-    children([HeaderContainer(name), MainContainer()])
+    children([HeaderContainer(name), MainContainer])
+});
+
+observe(appState, (change) => {
+  if (change.name === "pageIndex") {
+    MainContainer.setState(() => {
+      appState.setPageIndex(change.newValue);
+    });
+  }
 });
