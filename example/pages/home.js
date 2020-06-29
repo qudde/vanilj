@@ -12,13 +12,13 @@ const titleText = () =>
             text-align: center;
             font-size: 43px;
             max-width: 90%;
+            animation: heading-text-anim .6s ease;
         }
 
-        @media only screen and (max-width: 400px) {
-            .heading-text {
-              font-size: 36px;
-            }
-          }
+        @keyframes heading-text-anim {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0px); }
+          }      
     `
   });
 
