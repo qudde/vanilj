@@ -2,7 +2,7 @@ import Navigo from "navigo";
 import { pageState } from "../state/pageState";
 
 let root = null;
-let useHash = true; // Defaults to: false
+let useHash = false; // Defaults to: false
 let hash = "#"; // Defaults to: '#'
 let router = new Navigo(root, useHash, hash);
 
