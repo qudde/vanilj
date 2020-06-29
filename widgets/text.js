@@ -1,9 +1,8 @@
-import { Widget } from "../lib/widget";
+import { Container } from "../widgets/container";
 
-export class Text extends Widget {
-  constructor(value, style) {
-    super({ value, style });
-
-    this.el.innerText = value;
+export class Text extends Container {
+  constructor(value, style, rest) {
+    super({ value, style, ...rest });
+    this.el.appendChild(document.createTextNode(value));
   }
 }

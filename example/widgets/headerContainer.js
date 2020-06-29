@@ -11,7 +11,7 @@ export const HeaderContainer = (name) =>
       width: "100%",
       height: "90px",
       backgroundColor: "rgb(0,0,0)",
-      boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px"
+      boxShadow: "rgba(255,255,255, 0.4) 0px 0px 4px"
     }),
     justifyContent: "center",
     alignItems: "center",

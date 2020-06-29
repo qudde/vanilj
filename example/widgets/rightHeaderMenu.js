@@ -121,7 +121,7 @@ export const RightHeaderMenu = new FlexContainer({
               height: "150px",
               backgroundColor: "#fff",
               boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
-              borderRadius: "6px",
+              borderRadius: "3px",
               overflow: "hidden",
               padding: "10px",
               top: "80px"
