@@ -5,6 +5,7 @@ import { Container } from "../../widgets/container";
 import { Row } from "../../widgets/row";
 import { pageState } from "../state/pageState";
 import router from "../state/routes";
+import { observe } from "mobx";
 
 let _isOpen = false;
 let _isActive = false;
@@ -141,6 +142,10 @@ export const RightHeaderMenu = new FlexContainer({
           })
         : null
     ])
+});
+
+observe(pageState, (change) => {
+  RightHeaderMenu.update();
 });
 
 function toggleMenu() {
