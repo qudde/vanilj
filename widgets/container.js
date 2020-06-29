@@ -8,9 +8,13 @@ export class Container extends Widget {
       this.el.addEventListener("mousedown", props.onTouchStart);
     }
 
-    if (props && (props.onPressed || props.onTouchStart || props.onTouchEnd)) {
-      this.el.style.cursor = "pointer";
-    }
+    //if (props && (props.onPressed || props.onTouchStart || props.onTouchEnd)) {
+    //  this.el.style.cursor = "hand";
+    //}
+
+    //this.el.style.webkitUserSelect = "none";
+    //this.el.style.userSelect = "none";
+    //this.el.setAttribute("unselectable", "on");
 
     this.el.addEventListener(
       "mouseup",

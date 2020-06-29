@@ -7,7 +7,7 @@ export class Image extends Widget {
     this.el.src = props.source;
 
     if (props.onPressed) {
-      this.el.style.cursor = "pointer";
+      //this.el.style.cursor = "pointer";
       this.el.onclick = props.onPressed;
     }
   }

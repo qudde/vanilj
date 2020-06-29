@@ -4,6 +4,7 @@ import { Row } from "../../widgets/row";
 import { Text } from "../../widgets/text";
 import { withLayoutContainer } from "../widgets/withLayoutContainer";
 import router from "../state/routes";
+import { Ionicon } from "../../widgets/ionicon";
 
 const titleText = () =>
   new Text("The lightweight frontend framework.", null, {
@@ -27,8 +28,9 @@ const titleText = () =>
 
 const gettingStartedButton = () =>
   new Container({
+    element: "button",
     style: () => ({
-      width: "140px",
+      width: "170px",
       height: "44px",
       backgroundColor: "white",
       textAlign: "center",
@@ -36,7 +38,6 @@ const gettingStartedButton = () =>
       borderRadius: "40px",
       paddingLeft: "20px",
       paddingRight: "20px",
-      userSelect: "none",
       fontSize: "17px",
       boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px"
     }),
@@ -44,6 +45,10 @@ const gettingStartedButton = () =>
     css: (context) => `
         .getting-started-text {
             animation:getting-started-text-anim 2s ease;
+        }
+
+        .getting-started-text:hover {
+          opacity: 0.8;
         }
 
         @keyframes getting-started-text-anim {
@@ -58,8 +63,9 @@ const gettingStartedButton = () =>
 
 const gitHubButton = () =>
   new Container({
+    element: "button",
     style: () => ({
-      width: "90px",
+      width: "120px",
       height: "44px",
       backgroundColor: "rgba(255,255,255,.2)",
       textAlign: "center",
@@ -67,7 +73,6 @@ const gitHubButton = () =>
       borderRadius: "40px",
       paddingLeft: "20px",
       paddingRight: "20px",
-      userSelect: "none",
       fontSize: "17px",
       marginLeft: "10px",
       boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px"
@@ -76,6 +81,13 @@ const gitHubButton = () =>
     css: (context) => `
         .github-text {
             animation:github-text-anim 3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .github-text:hover {
+          opacity: 0.8;
         }
 
         @keyframes github-text-anim {
@@ -84,11 +96,21 @@ const gitHubButton = () =>
             100% { opacity: 1; }
           }      
     `,
-    onPressed: () => router.navigate("/resources"),
+    onPressed: () => window.open("https://github.com/qudde/vanilj", "_blank"),
     builder: ({ children }) =>
       children([
+        new Ionicon({
+          icon: "logo-github",
+          color: "#999",
+          size: "22px",
+          style: {
+            height: "30px",
+            marginRight: "4px"
+          }
+        }),
         new Text("GitHub", {
-          color: "white"
+          color: "white",
+          height: "40px"
         })
       ])
   });
@@ -119,7 +141,10 @@ const HomePage = new Container({
                   height: "120px",
                   alignSelf: "flex-start",
                   alignItems: "center",
-                  justifyContent: "center"
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                  paddingLeft: "20px",
+                  paddingRight: "20px"
                 },
                 builder: ({ children }) =>
                   children([gettingStartedButton(), gitHubButton()])

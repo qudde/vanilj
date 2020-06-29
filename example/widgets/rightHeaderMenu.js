@@ -42,7 +42,8 @@ const MenuItem = (context, item, index, isLast) =>
           fontSize: "16px",
           width: "95px",
           marginLeft: "10px",
-          letterSpacing: "1px"
+          letterSpacing: "1px",
+          textAlign: "left"
         }),
         new Ionicon({
           icon: "arrow-forward",
@@ -59,7 +60,9 @@ const MenuItem = (context, item, index, isLast) =>
   });
 
 export const RightHeaderMenu = new FlexContainer({
+  element: "button",
   style: (context) => ({
+    border: "none",
     maxWidth: "160px",
     height: "40px",
     backgroundColor: _isOpen ? "rgba(255,255,255,.2)" : "rgba(0, 0, 0, .2)",

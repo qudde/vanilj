@@ -18,7 +18,8 @@ export const LogoBox = () =>
           onPressed: () => router.navigate("/home"),
           style: {
             width: "100%"
-          }
+          },
+          className: "no-select"
         })
       ])
   });
