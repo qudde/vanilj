@@ -2,11 +2,12 @@ import { Container } from "../../widgets/container";
 import { Text } from "../../widgets/text";
 import { pageState } from "../state/pageState";
 import { observe } from "mobx";
+import { Future } from "../../lib/widget";
 
-export const _renderPage = (index) => {
+export const _renderPage = async (index) => {
   switch (index) {
     case 0:
-      return new Text("Home");
+      return await import(/* webpackChunkName: "home" */ "../pages/home");
     case 1:
       return new Text("Resources");
     case 2:
@@ -32,7 +33,8 @@ export const MainContainer = new Container({
   `,
 
   className: () => "main",
-  builder: ({ children }) => children([_renderPage(pageState.pageIndex)])
+  builder: ({ children }) =>
+    children([new Future(() => _renderPage(pageState.pageIndex))])
 });
 
 observe(pageState, (change) => {
