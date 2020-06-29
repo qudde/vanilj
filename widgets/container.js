@@ -8,11 +8,14 @@ export class Container extends Widget {
       this.el.addEventListener("mousedown", props.onTouchStart);
     }
 
+    if (props && (props.onPressed || props.onTouchStart || props.onTouchEnd)) {
+      this.el.style.cursor = "pointer";
+    }
+
     this.el.addEventListener(
       "mouseup",
       function (event) {
         if (props && props.onPressed) {
-          this.el.style.cursor = "pointer";
           props.onPressed();
         }
 

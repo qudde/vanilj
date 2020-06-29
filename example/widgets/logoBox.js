@@ -1,5 +1,6 @@
 import { Container } from "../../widgets/container";
 import { Image } from "../../widgets/image";
+import router from "../state/routes";
 
 const img = require("../../assets/vaniljglass.png");
 
@@ -14,7 +15,7 @@ export const LogoBox = () =>
       children([
         new Image({
           source: img,
-          onPressed: () => alert("on press"),
+          onPressed: () => router.navigate("/home"),
           style: {
             width: "100%"
           }
