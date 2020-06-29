@@ -4,28 +4,39 @@ import { Ionicon } from "../../widgets/ionicon";
 import { Container } from "../../widgets/container";
 import { Row } from "../../widgets/row";
 import { pageState } from "../state/pageState";
+import router from "../state/routes";
 
 let _isOpen = false;
 let _isActive = false;
-let _menuItems = ["Resources", "Search", "My Profile", "Help"];
-let _label = _menuItems[0];
+
+let _menuItems = [
+  { title: "Home", route: "/home" },
+  { title: "Resources", route: "/resources" },
+  { title: "Widgets", route: "/widgets" },
+  { title: "Help", route: "/help" }
+];
+
 let _selectedItem = 0;
 let _activeOn = false;
 let _activeAnim = 0;
 
-const MenuItem = (context, title, index, isLast) =>
+const MenuItem = (context, item, index, isLast) =>
   new FlexContainer({
     style: {
       height: "38px",
       borderBottom: isLast ? 0 : "1px solid #EEE",
       width: "100%"
     },
-    onPressed: () => context.setState(() => pageState.setPageIndex(index)),
+    onPressed: () =>
+      context.setState(() => {
+        _selectedItem = index;
+        router.navigate(_menuItems[index].route);
+      }),
     alignItems: "center",
     justifyContent: "space-between",
     builder: ({ children }) =>
       children([
-        new Text(title, {
+        new Text(item.title, {
           color: _isOpen ? "rgba(0,0,0,.5)" : "white",
           fontSize: "16px",
           width: "95px",
@@ -94,7 +105,7 @@ export const RightHeaderMenu = new FlexContainer({
           overflow: "hidden"
         }
       }),
-      new Text(_menuItems[pageState.pageIndex], {
+      new Text(_menuItems[_selectedItem].title, {
         color: "white",
         fontSize: "15px",
         fontWeight: 500,

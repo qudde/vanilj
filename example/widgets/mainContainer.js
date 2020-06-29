@@ -3,6 +3,21 @@ import { Text } from "../../widgets/text";
 import { pageState } from "../state/pageState";
 import { observe } from "mobx";
 
+export const _renderPage = (index) => {
+  switch (index) {
+    case 0:
+      return new Text("Home");
+    case 1:
+      return new Text("Resources");
+    case 2:
+      return new Text("Widgets");
+    case 3:
+      return new Text("Help");
+    default:
+      return new Text("Home");
+  }
+};
+
 export const MainContainer = new Container({
   css: (context) => `
       .main {
@@ -17,8 +32,7 @@ export const MainContainer = new Container({
   `,
 
   className: () => "main",
-  builder: ({ children }) =>
-    children([new Text(`Rendering page: ${pageState.pageIndex}`)])
+  builder: ({ children }) => children([_renderPage(pageState.pageIndex)])
 });
 
 observe(pageState, (change) => {
