@@ -29,7 +29,7 @@ const MenuItem = (context, item, index, isLast) =>
     },
     onPressed: () =>
       context.setState(() => {
-        _selectedItem = index;
+        pageState.setPageIndex(index);
         router.navigate(_menuItems[index].route);
       }),
     alignItems: "center",
@@ -105,7 +105,7 @@ export const RightHeaderMenu = new FlexContainer({
           overflow: "hidden"
         }
       }),
-      new Text(_menuItems[_selectedItem].title, {
+      new Text(_menuItems[pageState.pageIndex].title, {
         color: "white",
         fontSize: "15px",
         fontWeight: 500,
