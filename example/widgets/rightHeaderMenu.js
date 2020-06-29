@@ -65,7 +65,6 @@ export const RightHeaderMenu = new FlexContainer({
     backgroundColor: _isOpen ? "rgba(255,255,255,.2)" : "rgba(0, 0, 0, .2)",
     boxShadow: "rgba(87, 127, 133, 0.4) 0px 4px 10px",
     borderRadius: "20px",
-    userSelect: "none",
     ...getActiveStyles(context)
   }),
   css: (context) => `
@@ -75,6 +74,15 @@ export const RightHeaderMenu = new FlexContainer({
 
     .headerMenu {
       animation: menuin .3s ease;
+    }
+
+    .right-header-menu * {
+      -webkit-touch-callout: none !important; /* iOS Safari */
+      -webkit-user-select: none !important ; /* Safari */
+       -khtml-user-select: none !important; /* Konqueror HTML */
+         -moz-user-select: none !important; /* Firefox */
+          -ms-user-select: none !important; /* Internet Explorer/Edge */
+              user-select: none;
     }
 
     @keyframes menuin {
@@ -89,6 +97,7 @@ export const RightHeaderMenu = new FlexContainer({
     }
 
   `,
+  className: () => "right-header-menu",
   alignItems: "center",
   justifyContent: "center",
   onPressed: toggleMenu,
@@ -169,7 +178,7 @@ function toggleActiveState() {
 function getActiveStyles(context) {
   if (_isActive) {
     return {
-      backgroundColor: "rgba(0, 0, 0, .1)"
+      //backgroundColor: "rgba(0, 0, 0, .1)"
     };
   }
 }

@@ -1,1 +1,0 @@
-(window.webpackJsonpvaniljglass=window.webpackJsonpvaniljglass||[]).push([[305],{330:(s,a,e)=>{"use strict";e.r(a),e.d(a,{default:()=>n});const n=new(e(881).x)("Resources Page!")}}]);
