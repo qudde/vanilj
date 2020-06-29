@@ -11,7 +11,14 @@ const titleText = () =>
             color: white !important;
             text-align: center;
             font-size: 43px;
+            max-width: 90%;
         }
+
+        @media only screen and (max-width: 400px) {
+            .heading-text {
+              font-size: 36px;
+            }
+          }
     `
   });
 
@@ -22,23 +29,18 @@ const HomePage = new Container({
   }),
   builder: ({ children }) =>
     children([
-      withLayoutContainer(
-        [
-          new FlexContainer({
-            style: (context) => ({
-              width: "100%",
-              height: "500px",
-              backgroundColor: "#000"
-            }),
-            alignItems: "center",
-            justifyContent: "center",
-            builder: ({ children }) => children([titleText()])
-          })
-        ],
-        {
-          displayShadow: false
-        }
-      )
+      withLayoutContainer([
+        new FlexContainer({
+          style: (context) => ({
+            width: "100%",
+            height: "500px",
+            backgroundColor: "#000"
+          }),
+          alignItems: "center",
+          justifyContent: "center",
+          builder: ({ children }) => children([titleText()])
+        })
+      ])
     ])
 });
 

@@ -28,7 +28,7 @@ export const HeaderContainer = (name) =>
           
             @media only screen and (max-width: 900px) {
               .headerMenuRow {
-                width: calc(100% - 70px) !important;
+                width: calc(100% - 30px) !important;
               }
             }
   
