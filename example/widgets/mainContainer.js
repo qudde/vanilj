@@ -9,13 +9,15 @@ export const _renderPage = async (index) => {
     case 0:
       return await import(/* webpackChunkName: "home" */ "../pages/home");
     case 1:
-      return new Text("Resources");
+      return await import(
+        /* webpackChunkName: "resources" */ "../pages/resources"
+      );
     case 2:
-      return new Text("Widgets");
+      return await import(/* webpackChunkName: "widgets" */ "../pages/widgets");
     case 3:
-      return new Text("Help");
+      return await import(/* webpackChunkName: "help" */ "../pages/help");
     default:
-      return new Text("Home");
+      return await import(/* webpackChunkName: "home" */ "../pages/home");
   }
 };
 
