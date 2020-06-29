@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js --optimize-minimize",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "prod": "node server.prod.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
-    "path": "^0.12.7",
     "webpack": "5.0.0-beta.18",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
@@ -20,6 +20,10 @@
   },
   "dependencies": {
     "mobx": "^5.15.4",
-    "navigo": "^7.1.2"
+    "navigo": "^7.1.2",
+    "url": "0.11.0",
+    "express-http-proxy": "1.6.0",
+    "path": "^0.12.7",
+    "express": "4.17.1"
   }
 }
